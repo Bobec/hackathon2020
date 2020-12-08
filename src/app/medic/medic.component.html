@@ -1,0 +1,16 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['medicAdaugaPacient']">Adauga Pacient</button>
+  <button mat-menu-item [routerLink]="['medicListaPacienti']">Lista Pacienti</button>
+</mat-menu>
+
+
+<button mat-button (click)="tesdDB()">Test</button>
+
+<mat-card *ngFor="let pacient of listaPacienti">
+  <pre>
+      {{pacient | json}}
+  </pre>
+  </mat-card>
+
+<router-outlet></router-outlet>
