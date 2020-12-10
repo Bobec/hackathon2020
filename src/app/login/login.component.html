@@ -1,0 +1,51 @@
+<form class="example-form" (submit)="login()"  [hidden]="registration">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" name="username" value="username" [(ngModel)]="username">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" type="password" name="password" value="********" [(ngModel)]="password">
+    </mat-form-field>
+
+    <button mat-button type="submit">Login</button>
+  </form>
+
+  <button mat-button type="button" (click)="registration=true" *ngIf="!this.registration">Register</button>
+
+  <form class="example-form" (submit)="register()" [hidden]="!registration">
+
+    <mat-form-field>
+      <mat-select
+        [compareWith]="compareObjects"
+        [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
+           <mat-option  *ngFor="let obj of listOfObjs" [value]="obj">
+              {{ obj.name }}
+           </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" *ngIf="selected.name=='Pacient'">
+      <mat-label>Varsta</mat-label>
+      <input matInput placeholder="Varsta" name="varsta" value="varsta" [(ngModel)]="varsta">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" *ngIf="selected.name=='Medic'"> 
+      <mat-label>Specializare</mat-label>
+      <input matInput placeholder="Specializare" name="specializare" value="specializare" [(ngModel)]="specializare">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" name="username" value="username" [(ngModel)]="username">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" type="password" name="password" value="********" [(ngModel)]="password">
+    </mat-form-field>
+
+    <button mat-button type="submit">Register</button>
+  </form>
+  

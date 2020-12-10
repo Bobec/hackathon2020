@@ -1,0 +1,20 @@
+<form class="example-form" (submit) = addPacient(value)>
+    <mat-form-field class="example-full-width">
+      <input type="text"
+             placeholder="Pick one"
+             aria-label="Number"
+             matInput
+             [(ngModel)]="selectedPatient"
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name" (onSelectionChange)=selectedOption(option)>
+          {{option["nume"]}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button type="submit" mat-button>Adauga</button>
+  </form>
+  
+  
